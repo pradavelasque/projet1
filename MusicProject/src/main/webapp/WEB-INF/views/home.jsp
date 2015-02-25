@@ -210,6 +210,10 @@ alert(initialModalHeight);
 			</div>
 		</div>
 	</footer>
+    
+   
+    
+    
 	<!--/#footer-->
 
 	<script src="<c:url value="/resources/js/jquery.js" />"></script>
