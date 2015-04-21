@@ -25,6 +25,10 @@
 <body>
 
 <div  class="container">
+
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/XGSy3_Czz8k">
+</iframe>
 	<section>
 	
 	<!-- modal apres clicker sur le bouton -->
@@ -65,7 +69,10 @@
 <!--     </div> -->
     
 <!--     1. The <iframe> (and video player) will replace this <div> tag. -->
-<!--     <div id="player"></div> -->
+    <div id="player"></div>
+
+<p  id="demo" >Click the button to extract characters from the string.</p>
+<p  id="demo1" > </p>
 
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
@@ -126,7 +133,9 @@
 <%-- 	<script src="<c:url value="/resources/js/main.js" />"></script> --%>
 	
 	
-	
+	<script src="auth.js"></script>
+    <script src="search.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 	 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
      <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
@@ -134,6 +143,12 @@
         
         $(document).ready(function() {
         
+        	var str = document.getElementById("demo").innerHTML ;
+            var res = str.substring(2);
+            document.getElementById("demo1").innerHTML = res;
+            console.log( "ready!" );
+        	
+        	
            $("#ajouterVideo").click(function(){
         	   
         	   $.ajax({

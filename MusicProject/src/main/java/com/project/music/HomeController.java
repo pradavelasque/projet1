@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -65,7 +67,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		model.addAttribute("listMusic", listMusic);
 		
-		return "identification";
+		return "index";
 	}
 	
 	@RequestMapping( value = "/t",method = RequestMethod.GET)
@@ -101,5 +103,51 @@ public class HomeController {
 			return model;
 	 
 		}
+		
+		
+		@RequestMapping( value = "audio",method = RequestMethod.GET)
+		public ModelAndView chargerListAudio(HttpServletRequest request){
+			
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index-1");
+			return model;
+			
+		}
 	
+		@RequestMapping( value = "video",method = RequestMethod.GET)
+		public ModelAndView chargerListVideo(HttpServletRequest request){
+			
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index-2");
+			return model;
+			
+		}
+		
+		@RequestMapping( value = "gallery",method = RequestMethod.GET)
+		public ModelAndView chargerListGallery(HttpServletRequest request){
+			
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index-3");
+			return model;
+			
+		}
+		
+		@RequestMapping( value = "tourDates",method = RequestMethod.GET)
+		public ModelAndView chargerListTourDates(HttpServletRequest request){
+			
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index-4");
+			return model;
+			
+		}
+		
+		@RequestMapping( value = "contacts",method = RequestMethod.GET)
+		public ModelAndView chargerListTourContacts(HttpServletRequest request){
+			
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index-5");
+			return model;
+			
+		}
+		
 }

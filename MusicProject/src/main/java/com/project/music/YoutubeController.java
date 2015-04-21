@@ -46,8 +46,8 @@ public class YoutubeController {
     private static YouTube youtube;
     
     @RequestMapping(value = "/music/qw", method = RequestMethod.GET)
-	public @ResponseBody Music actionYoutube(Locale locale, Model model){
-		
+	public @ResponseBody List<SearchResult> actionYoutube(Locale locale, Model model){
+    	List<SearchResult> searchResultList=null;
 		 Properties properties = new Properties();
 	        try {
 	            InputStream in = YoutubeController.class.getResourceAsStream("/" + PROPERTIES_FILENAME);
@@ -93,7 +93,7 @@ public class YoutubeController {
 
 	            // Call the API and print results.
 	            SearchListResponse searchResponse = search.execute();
-	            List<SearchResult> searchResultList = searchResponse.getItems();
+	            searchResultList = searchResponse.getItems();
 	            if (searchResultList != null) {
 	                prettyPrint(searchResultList.iterator(), queryTerm);
 	            }
@@ -109,7 +109,7 @@ public class YoutubeController {
 	        Music music = new Music();
 	        music.setName("test2");
 	        music.setAdresse("test");
-	        return music;
+	        return searchResultList;
 	        
 	}
 	
